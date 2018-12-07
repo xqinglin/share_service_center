@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Handy</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body{
+            background-color: #2e47cc;
+            color: #f2f1ef;
+        }
+        #imgContainer img{
+            width: 600px;
+            height: auto;
+        }
+        textarea{
+            width: 600px;
+            height: 700px;
+        }
+        .section{
+            display: grid;
+            grid-template-columns: 50% 50%;
+        }
+        .sub_section{
+            text-align: center;
+
+        }
+        button{
+            padding: 0;
+            margin: 0;
+            background-color: yellowgreen;
+            border-radius:20%;
+            font-size: 40px;
+            color: black;
+            text-decoration: None;
+        }
+        button:hover{
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<script>
+
+</script>
+<body >
+    <div class="header">
+        {% for i in range(6) %}
+            <img src="/static/bigM.png" height=100 />
+        {% endfor %}
+        <a href="/"><button type="button">Upload another image!</button></a>
+    </div>
+    <div class="section">
+        <div class="sub_section">
+            <h2>Text deteced from the image</h2>
+            <textarea >
+            {{text_got}}
+            </textarea>
+        </div>
+        <div class="sub_section">
+             <h2>Detected Language: {{language}}</h2>
+            <textarea >
+            {{text_translate}}
+            </textarea>           
+        </div>
+    </div>
+
+
+</body>
+
+</html>

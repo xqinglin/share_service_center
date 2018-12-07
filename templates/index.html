@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Handy</title>
+    <style>
+        #upload{
+            text-align: center;
+            padding: 10px;
+            margin: 40px;
+            background-color:#ECF0F1;
+        }
+        #uploadbanner, #fileupload,#submit{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: #2e47cc;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    {% for i in range(6) %}
+        <img src="/static/bigM.png" height=100 />
+    {% endfor %}
+</div>
+
+    <div id='upload'>
+    <form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+
+        <strong>Upload a image file:</strong><br>
+        <input id="file-picker" type="file" name="file" accept="image/*" multiple>
+        <div id="msg"></div>
+        <input type="submit" value="Upload!" id="upload-button">
+    </form>
+    </div>
+
+</body>
+    <script>
+
+        $("#file-picker").change(function(){
+        var input = document.getElementById('file-picker');
+        for (var i=0; i<input.files.length; i++)
+        {
+        //koala.jpg, koala.JPG substring(index) lastIndexOf('a') koala.1.jpg
+            var ext= input.files[i].name.substring(input.files[i].name.lastIndexOf('.')+1).toLowerCase()
+            if ((ext == 'jpg') || (ext == 'png'))
+            {
+                $("#msg").text("Files are supported")
+            }
+            else
+            {
+                $("#msg").text("Files are NOT supported")
+                document.getElementById("file-picker").value ="";
+            }
+        }
+    } );
+    </script>
+</html>
