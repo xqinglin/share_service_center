@@ -1,4 +1,4 @@
-#Shared Service Center Project
+#Shared Service Center Project#
 Code for 'handy' chrome extension and 'handy' text detectiom from image. 
 It detect the text from image, then detect the language in image, along with translated text. 
 
